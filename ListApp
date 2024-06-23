@@ -21,3 +21,27 @@
         <Button x:Name="RemoveTaskButton" Grid.Column="1" Grid.Row="1" Margin="5" Click="RemoveTaskButton_Click" Content="Удалить задачу"/>
     </Grid>
 </Window>
+____________________________________________________________________________________________________________________________________________________________________
+   public partial class MainWindow : Window
+   {
+       public MainWindow()
+       {
+           InitializeComponent();
+       }
+
+       private void AddTaskButton_Click(object sender, RoutedEventArgs e)
+       {
+           string task = TaskTextBox.Text;
+           TasksListBox.Items.Add(task);
+           TaskTextBox.Clear();
+       }
+
+       private void RemoveTaskButton_Click(object sender, RoutedEventArgs e)
+       {
+           int selectedIndex = TasksListBox.SelectedIndex;
+           if (selectedIndex != -1)
+           {
+               TasksListBox.Items.RemoveAt(selectedIndex);
+           }
+       }
+   }
